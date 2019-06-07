@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/DNC.py" line="2847" />
+    <bookmark url="file://$PROJECT_DIR$/DNC.py" line="3020" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d983b95a-b32d-4e90-9d6c-9e16ebb90ef7" name="Default Changelist" comment="" />
@@ -13,43 +13,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DNC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="3328" lean-forward="true" selection-start-line="3328" selection-end-line="3328" />
+            <state relative-caret-position="282">
+              <caret line="332" column="24" selection-start-line="332" selection-start-column="24" selection-end-line="332" selection-end-column="24" />
               <folding>
-                <element signature="e#86139#140755#0" />
-                <element signature="e#88330#89156#0" />
-                <element signature="e#89374#89526#0" />
-                <element signature="e#89903#90320#0" />
-                <element signature="e#90357#90718#0" />
-                <element signature="e#90763#91613#0" />
-                <element signature="e#91652#92527#0" />
-                <element signature="e#92568#93439#0" />
-                <element signature="e#93476#93547#0" />
-                <element signature="e#93600#93659#0" />
-                <element signature="e#94051#94508#0" />
-                <element signature="e#94573#94625#0" />
-                <element signature="e#94675#94727#0" />
-                <element signature="e#94841#94893#0" />
-                <element signature="e#95493#95679#0" />
-                <element signature="e#95730#95919#0" />
-                <element signature="e#97317#97664#0" />
-                <element signature="e#97729#97895#0" />
-                <element signature="e#98237#99033#0" />
-                <element signature="e#99285#116102#0" />
-                <element signature="e#115926#138560#0" />
-                <element signature="e#117997#129202#0" />
-                <element signature="e#118298#119639#0" />
-                <element signature="e#119805#120273#0" />
-                <element signature="e#120413#120767#0" />
-                <element signature="e#120523#129202#0" />
-                <element signature="e#129257#136385#0" />
-                <element signature="e#138345#138723#0" />
-                <element signature="e#141471#149442#0" />
-                <element signature="e#161071#168030#0" />
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#413#426#0" />
+                <element signature="e#1223#1407#0" />
+                <element signature="e#1463#1658#0" />
+                <element signature="e#1653#1746#0" />
+                <element signature="e#1801#1901#0" />
+                <element signature="e#1898#2230#0" />
+                <element signature="e#2293#2666#0" />
+                <element signature="e#2656#2733#0" />
+                <element signature="e#2767#3713#0" />
+                <element signature="e#3843#3895#0" />
+                <element signature="e#3922#3974#0" />
+                <element signature="e#4100#4170#0" />
+                <element signature="e#4196#4275#0" />
+                <element signature="e#4308#5605#0" />
+                <element signature="e#5672#5762#0" />
+                <element signature="e#5788#5878#0" />
+                <element signature="e#4406#4834#0" />
+                <element signature="e#5759#5795#0" />
+                <element signature="e#5849#6413#0" />
+                <element signature="e#6446#6896#0" />
+                <element signature="e#6568#8690#0" />
+                <element signature="e#6670#6913#0" />
+                <element signature="e#6996#8237#0" />
+                <element signature="e#8275#8320#0" />
+                <element signature="e#8719#10805#0" />
+                <element signature="e#10824#13760#0" />
+                <element signature="e#11489#11990#0" />
+                <element signature="e#13781#14037#0" />
+                <element signature="e#18127#18586#0" />
+                <element signature="e#18610#20023#0" />
+                <element signature="e#18837#19833#0" />
+                <element signature="e#20055#20689#0" />
+                <element signature="e#20725#23019#0" />
+                <element signature="e#23057#26479#0" />
+                <element signature="e#26520#26956#0" />
+                <element signature="e#26993#27424#0" />
+                <element signature="e#27472#27926#0" />
+                <element signature="e#27977#29304#0" />
+                <element signature="e#29355#29450#0" />
+                <element signature="e#29486#29814#0" />
+                <element signature="e#29837#29932#0" />
+                <element signature="e#29962#30313#0" />
+                <element signature="e#30346#35534#0" />
+                <element signature="e#35561#38246#0" />
+                <element signature="e#38287#88413#0" />
+                <element signature="e#89873#89924#0" />
+                <element signature="e#89965#90015#0" />
+                <element signature="e#90093#90104#0" />
+                <element signature="e#92818#93900#0" />
+                <element signature="e#93927#93990#0" />
+                <element signature="e#94392#94809#0" />
+                <element signature="e#95308#96214#0" />
+                <element signature="e#96253#97128#0" />
+                <element signature="e#97169#98040#0" />
+                <element signature="e#98077#98148#0" />
+                <element signature="e#98201#98293#0" />
+                <element signature="e#98411#98586#0" />
+                <element signature="e#98685#99142#0" />
+                <element signature="e#99207#99259#0" />
+                <element signature="e#99309#99361#0" />
+                <element signature="e#99416#99468#0" />
+                <element signature="e#99582#99634#0" />
+                <element signature="e#102932#103745#0" />
+                <element signature="e#104166#120983#0" />
+                <element signature="e#121010#145002#0" />
+                <element signature="e#145361#154097#0" />
+                <element signature="e#152843#153549#0" />
+                <element signature="e#154119#155261#0" />
+                <element signature="e#155284#164448#0" />
+                <element signature="e#164466#172842#0" />
+                <element signature="e#172885#173341#0" />
+                <element signature="e#173368#173784#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -57,8 +109,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dnc_Sim_Results.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11669">
-              <caret line="601" column="25" selection-start-line="601" selection-start-column="16" selection-end-line="601" selection-end-column="25" />
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DNCSim.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/matplotlib/backends/tkagg.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,36 +149,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>trick</find>
-      <find>tric</find>
-      <find>Technical Finish</find>
-      <find>Technical Step</find>
-      <find>trick.active(clo</find>
-      <find>standardhold</find>
-      <find>Standard Step</find>
-      <find>for i in st</find>
-      <find>len(delaystart)</find>
-      <find>Trick Attack</find>
-      <find>You use Cascade</find>
-      <find>sim2</find>
-      <find>Cascade.getpotency</find>
-      <find>You use Fountain</find>
-      <find>Combo</find>
-      <find>You cannot</find>
-      <find>Trick</find>
-      <find>proc</find>
-      <find>Improvisation</find>
-      <find>nextgcd =</find>
-      <find>You use Saber</find>
-      <find>You begin Standard Step</find>
-      <find>You begin Technical</find>
+      <find>Esprit: 100</find>
+      <find>You begin Standard</find>
+      <find>You Begin Standard Step</find>
+      <find>You use Flourish</find>
       <find>You begin Technical Step</find>
-      <find>print</find>
-      <find>You use Technical Finish</find>
+      <find>reset()</find>
+      <find>potmod</find>
+      <find>potmod.append</find>
+      <find>auto</find>
+      <find>You begin Standard Step</find>
+      <find>You begin STandard Step</find>
+      <find>Trick Attack</find>
+      <find>pROC</find>
+      <find>Trick</find>
       <find>Proc</find>
-      <find>devilment</find>
-      <find>You begin Improv</find>
-      <find>Devilment</find>
+      <find>Combo</find>
+      <find>trick attack</find>
+      <find>closetop</find>
+      <find>for i in party</find>
+      <find>text</find>
+      <find>NIN</find>
+      <find>1</find>
+      <find>print(i</find>
+      <find>proc</find>
+      <find>values['fight</find>
+      <find>plt.show</find>
+      <find>openers</find>
+      <find>Boss</find>
+      <find>runsim(log</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>dropbuff(clock)</replace>
@@ -116,6 +191,9 @@
       <replace>delayend</replace>
       <replace>len(delaytable)</replace>
       <replace>sim</replace>
+      <replace>Text</replace>
+      <replace>PLD</replace>
+      <replace>2</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -124,13 +202,20 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/Dnc_Sim_Results.log" />
+        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/PySide2/examples/tutorial/t1.py" />
+        <option value="$PROJECT_DIR$/simapp.kv" />
+        <option value="$PROJECT_DIR$/simgui.py" />
+        <option value="$PROJECT_DIR$/test2.py" />
+        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/matplotlib/backends/tkagg.py" />
+        <option value="$PROJECT_DIR$/settings" />
         <option value="$PROJECT_DIR$/DNC.py" />
+        <option value="$PROJECT_DIR$/smgui2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="137" />
-    <option name="y" value="-10" />
+    <option name="x" value="48" />
+    <option name="y" value="-9" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -138,13 +223,34 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DNCSim" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DNCSim" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="DNCSim" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="DNCSim" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -163,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DNC">
+  <component name="RunManager" selected="Python.DNCSim">
     <configuration name="DNC" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DNCSim" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,7 +291,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="DNCSim" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DNCSim" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -193,11 +299,74 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DNCSim.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="simgui" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DNCSim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simgui.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="smgui2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DNCSim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/smgui2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DNCSim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -208,8 +377,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DNCSim" />
+        <item itemvalue="Python.smgui2" />
         <item itemvalue="Python.DNC" />
-        <item itemvalue="Python.scratch" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.simgui" />
       </list>
     </recent_temporary>
   </component>
@@ -239,13 +411,13 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17913593" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987553" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3039419" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39879155" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27282158" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39834026" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32883817" />
@@ -282,393 +454,372 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>486</line>
+          <line>661</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>804</line>
+          <line>980</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>209</line>
+          <line>383</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1034</line>
+          <line>1210</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1036</line>
+          <line>1212</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>488</line>
+          <line>663</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>311</line>
+          <line>483</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1006</line>
+          <line>1182</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>349</line>
+          <line>521</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>319</line>
+          <line>491</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>676</line>
+          <line>852</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>354</line>
+          <line>526</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>215</line>
+          <line>389</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3387</line>
+          <line>3597</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>926</line>
+          <line>1102</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3477</line>
+          <line>3694</line>
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3479</line>
+          <line>3696</line>
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>362</line>
+          <line>534</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3370</line>
+          <line>3580</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3274</line>
+          <line>3483</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>851</line>
+          <line>1027</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>211</line>
+          <line>385</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>286</line>
+          <line>458</line>
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3406</line>
+          <line>3616</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>893</line>
+          <line>1069</line>
           <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3249</line>
+          <line>3458</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3294</line>
+          <line>3503</line>
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>845</line>
+          <line>1021</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3091</line>
+          <line>3300</line>
           <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3325</line>
+          <line>3534</line>
           <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3047</line>
+          <line>3256</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3061</line>
+          <line>3270</line>
           <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2941</line>
+          <line>3150</line>
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>545</line>
+          <line>721</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1041</line>
+          <line>1217</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>348</line>
+          <line>520</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>384</line>
+          <line>556</line>
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>829</line>
+          <line>1005</line>
           <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>798</line>
-          <option name="timeStamp" value="181" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>110</line>
+          <line>233</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1871</line>
+          <line>2050</line>
           <option name="timeStamp" value="197" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1860</line>
+          <line>2039</line>
           <option name="timeStamp" value="200" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>160</line>
-          <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>617</line>
-          <option name="timeStamp" value="210" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>742</line>
+          <line>918</line>
           <option name="timeStamp" value="213" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>681</line>
-          <option name="timeStamp" value="214" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3157</line>
+          <line>3366</line>
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2918</line>
-          <option name="timeStamp" value="217" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1054</line>
+          <line>1230</line>
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="219" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>214</line>
+          <line>388</line>
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>225</line>
+          <line>397</line>
           <option name="timeStamp" value="223" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>910</line>
+          <line>1086</line>
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3137</line>
+          <line>3346</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>301</line>
-          <option name="timeStamp" value="229" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1221</line>
+          <line>1399</line>
           <option name="timeStamp" value="231" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1719</line>
+          <line>1898</line>
           <option name="timeStamp" value="232" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1726</line>
+          <line>1905</line>
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2133</line>
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2030</line>
+          <line>2215</line>
           <option name="timeStamp" value="240" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2060</line>
-          <option name="timeStamp" value="244" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2248</line>
-          <option name="timeStamp" value="247" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2145</line>
-          <option name="timeStamp" value="250" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3001</line>
+          <line>3210</line>
           <option name="timeStamp" value="253" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2222</line>
-          <option name="timeStamp" value="254" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2151</line>
-          <option name="timeStamp" value="259" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2058</line>
-          <option name="timeStamp" value="260" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2074</line>
-          <option name="timeStamp" value="261" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>3329</line>
-          <option name="timeStamp" value="263" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2560</line>
-          <option name="timeStamp" value="265" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2614</line>
-          <option name="timeStamp" value="266" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>1098</line>
-          <option name="timeStamp" value="267" />
+          <line>3299</line>
+          <option name="timeStamp" value="274" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
           <line>2243</line>
-          <option name="timeStamp" value="268" />
+          <option name="timeStamp" value="279" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2770</line>
-          <option name="timeStamp" value="269" />
+          <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2868</line>
-          <option name="timeStamp" value="270" />
+          <line>1064</line>
+          <option name="timeStamp" value="288" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2864</line>
-          <option name="timeStamp" value="272" />
+          <line>989</line>
+          <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DNC.py</url>
-          <line>2589</line>
-          <option name="timeStamp" value="273" />
+          <line>77</line>
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>338</line>
+          <option name="timeStamp" value="300" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>106</line>
+          <option name="timeStamp" value="302" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>149</line>
+          <option name="timeStamp" value="304" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>276</line>
+          <option name="timeStamp" value="305" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>765</line>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>706</line>
+          <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>3703</line>
+          <option name="timeStamp" value="323" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>2377</line>
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>2390</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>2399</line>
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>2402</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DNC.py</url>
+          <line>2502</line>
+          <option name="timeStamp" value="330" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -705,48 +856,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dnc_Sim_Results.log">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/PySide2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11669">
-          <caret line="601" column="25" selection-start-line="601" selection-start-column="16" selection-end-line="601" selection-end-column="25" />
+        <state relative-caret-position="850">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/PySide2/examples/tutorial/t1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+          <folding>
+            <element signature="e#1994#2004#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/shiboken2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simapp.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="266" column="20" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simgui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#199#203#0" />
+            <element signature="e#230#234#0" />
+            <element signature="e#604#638#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/matplotlib/backends/tkagg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DNC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="3328" lean-forward="true" selection-start-line="3328" selection-end-line="3328" />
+        <state relative-caret-position="282">
+          <caret line="332" column="24" selection-start-line="332" selection-start-column="24" selection-end-line="332" selection-end-column="24" />
           <folding>
-            <element signature="e#86139#140755#0" />
-            <element signature="e#88330#89156#0" />
-            <element signature="e#89374#89526#0" />
-            <element signature="e#89903#90320#0" />
-            <element signature="e#90357#90718#0" />
-            <element signature="e#90763#91613#0" />
-            <element signature="e#91652#92527#0" />
-            <element signature="e#92568#93439#0" />
-            <element signature="e#93476#93547#0" />
-            <element signature="e#93600#93659#0" />
-            <element signature="e#94051#94508#0" />
-            <element signature="e#94573#94625#0" />
-            <element signature="e#94675#94727#0" />
-            <element signature="e#94841#94893#0" />
-            <element signature="e#95493#95679#0" />
-            <element signature="e#95730#95919#0" />
-            <element signature="e#97317#97664#0" />
-            <element signature="e#97729#97895#0" />
-            <element signature="e#98237#99033#0" />
-            <element signature="e#99285#116102#0" />
-            <element signature="e#115926#138560#0" />
-            <element signature="e#117997#129202#0" />
-            <element signature="e#118298#119639#0" />
-            <element signature="e#119805#120273#0" />
-            <element signature="e#120413#120767#0" />
-            <element signature="e#120523#129202#0" />
-            <element signature="e#129257#136385#0" />
-            <element signature="e#138345#138723#0" />
-            <element signature="e#141471#149442#0" />
-            <element signature="e#161071#168030#0" />
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#413#426#0" />
+            <element signature="e#1223#1407#0" />
+            <element signature="e#1463#1658#0" />
+            <element signature="e#1653#1746#0" />
+            <element signature="e#1801#1901#0" />
+            <element signature="e#1898#2230#0" />
+            <element signature="e#2293#2666#0" />
+            <element signature="e#2656#2733#0" />
+            <element signature="e#2767#3713#0" />
+            <element signature="e#3843#3895#0" />
+            <element signature="e#3922#3974#0" />
+            <element signature="e#4100#4170#0" />
+            <element signature="e#4196#4275#0" />
+            <element signature="e#4308#5605#0" />
+            <element signature="e#5672#5762#0" />
+            <element signature="e#5788#5878#0" />
+            <element signature="e#4406#4834#0" />
+            <element signature="e#5759#5795#0" />
+            <element signature="e#5849#6413#0" />
+            <element signature="e#6446#6896#0" />
+            <element signature="e#6568#8690#0" />
+            <element signature="e#6670#6913#0" />
+            <element signature="e#6996#8237#0" />
+            <element signature="e#8275#8320#0" />
+            <element signature="e#8719#10805#0" />
+            <element signature="e#10824#13760#0" />
+            <element signature="e#11489#11990#0" />
+            <element signature="e#13781#14037#0" />
+            <element signature="e#18127#18586#0" />
+            <element signature="e#18610#20023#0" />
+            <element signature="e#18837#19833#0" />
+            <element signature="e#20055#20689#0" />
+            <element signature="e#20725#23019#0" />
+            <element signature="e#23057#26479#0" />
+            <element signature="e#26520#26956#0" />
+            <element signature="e#26993#27424#0" />
+            <element signature="e#27472#27926#0" />
+            <element signature="e#27977#29304#0" />
+            <element signature="e#29355#29450#0" />
+            <element signature="e#29486#29814#0" />
+            <element signature="e#29837#29932#0" />
+            <element signature="e#29962#30313#0" />
+            <element signature="e#30346#35534#0" />
+            <element signature="e#35561#38246#0" />
+            <element signature="e#38287#88413#0" />
+            <element signature="e#89873#89924#0" />
+            <element signature="e#89965#90015#0" />
+            <element signature="e#90093#90104#0" />
+            <element signature="e#92818#93900#0" />
+            <element signature="e#93927#93990#0" />
+            <element signature="e#94392#94809#0" />
+            <element signature="e#95308#96214#0" />
+            <element signature="e#96253#97128#0" />
+            <element signature="e#97169#98040#0" />
+            <element signature="e#98077#98148#0" />
+            <element signature="e#98201#98293#0" />
+            <element signature="e#98411#98586#0" />
+            <element signature="e#98685#99142#0" />
+            <element signature="e#99207#99259#0" />
+            <element signature="e#99309#99361#0" />
+            <element signature="e#99416#99468#0" />
+            <element signature="e#99582#99634#0" />
+            <element signature="e#102932#103745#0" />
+            <element signature="e#104166#120983#0" />
+            <element signature="e#121010#145002#0" />
+            <element signature="e#145361#154097#0" />
+            <element signature="e#152843#153549#0" />
+            <element signature="e#154119#155261#0" />
+            <element signature="e#155284#164448#0" />
+            <element signature="e#164466#172842#0" />
+            <element signature="e#172885#173341#0" />
+            <element signature="e#173368#173784#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/smgui2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-994">
+          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#340#3127#0" />
+            <element signature="e#3083#3728#0" />
+            <element signature="e#4121#8505#0" />
+            <element signature="e#8710#8841#0" />
+            <element signature="e#13186#13205#0" />
+            <element signature="e#12793#14007#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dnc_Sim_Results.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DNCSim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

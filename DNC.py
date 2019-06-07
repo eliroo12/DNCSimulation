@@ -1,14 +1,17 @@
 import random
 import math
 import logging
+import statistics
+import matplotlib.pyplot as plt
 
 logging.basicConfig(filename='Dnc_Sim_Results.log', filemode='w', format='%(message)s', level=logging.INFO)
 logging.info('---------- THE DAMAGE NUMBERS IN THIS LOG ARE BASED OF STORMSBLOOD BARDs FORMULA AND ARE NO WAY AN ACTUAL REPRESENTATION OF DAMAGE DONE. PLEASE TAKE THEM WITH A GRAIN OF SALT --------------------')
 
 # Init Values
-dex = 2820
-basedex = 2820
-WD = 109
+# Sinful Global Values
+dex = 3662
+basedex = 3662
+WD = 114
 JobMod = 115
 gcd = 0
 gcdtime = 0
@@ -24,13 +27,15 @@ comboscreated = 0
 feathersdropped = 0
 feathertry = 0
 featherattempt = 0
+firstdevilment = 0
 totalprocs = 0
 procdrop = 0
-det = 1587
-ss = 364
-crit = 2174
-dh = 1224
-wepdelay = 3.04
+totalesprit = 0
+det = 1462
+ss = 1283
+crit = 1967
+dh = 1806
+wepdelay = 3.12
 GCDrecast = 2.43
 abilitydelay = .70
 basecritchance = 25
@@ -38,8 +43,9 @@ basecritbonus = 1.5
 basedirectchance = 35
 basedirectbonus = 1.25
 createlog = False
+globaldelaytable = [[10000000, 10000001, False]]
 
-SStiers = [364,381,448,515,581,648,715,782,849,915,982,1049,1116]
+SStiers = [364,381,448,515,581,648,715,782,849,915,982,1049,1116, 1283]
 
 techdrift = 0
 standdrift = 0
@@ -47,33 +53,61 @@ techhold = 0
 standhold = 0
 trickstands = 0
 
+openers = {}
+fights = {}
+
 
 threepercent = 0
 sixpercent = 0
 
+#Function to determine Critical Rate values
 def determinecrit():
     global crit
     global basecritchance
     global basecritbonus
 
-    basecritchance = math.floor(200*(crit-364)/2170+50)/10
-    basecritbonus = math.floor(200*(crit-364)/2170+1400)/1000
+    basecritchance = math.floor(200*(crit-380)/3300+50)/10
+    basecritbonus = math.floor(200*(crit-380)/3300+1400)/1000
+#Function to return Crit string to GUI
+def returncrit(critv):
 
+    critrate = math.floor(200 * (critv - 380) / 3300 + 50) / 10
+    critbuff = ((math.floor(200 * (critv - 380) / 3300 + 1400) / 1000)-1)*100
+    return str(round(critrate, 2))+'% :'+str(round(critbuff,2))+'%'
+#Function to determine direct hit values
 def determinedh():
     global dh
     global basedirectchance
-    basedirectchance = math.floor(550*(dh-364)/2170)/10
+    basedirectchance = math.floor(550*(dh-380)/3300)/10
+#Function to return DH String to GUI
+def returndh(direct):
 
+    directchance = math.floor(550 * (direct - 380) / 3300) / 10
+    return str(round(directchance,2))+'%'
+#Function to determine GCD Tier
 def determinegcd():
     global GCDrecast
     global ss
-    GCDm = math.floor((1000 - math.floor(130*(ss-364)/2170))*2500/1000)
+    GCDm = math.floor((1000 - math.floor(130*(ss-380)/3300))*2500/1000)
     A = math.floor(math.floor(math.floor(math.floor((100-0)*(100-0)/100)*(100-0)/100))-0)
     B = (100 - 0) / 100
     GCDc = math.floor(math.floor(math.floor(math.ceil(A*B)*GCDm/100)*100/1000)*100/100)
 
     GCDrecast = GCDc / 100
+#Function to return GCD Value to GUI
+def returngcd(skill):
+    GCDm = math.floor((1000 - math.floor(130 * (skill - 380) / 3300)) * 2500 / 1000)
+    A = math.floor(math.floor(math.floor(math.floor((100 - 0) * (100 - 0) / 100) * (100 - 0) / 100)) - 0)
+    B = (100 - 0) / 100
+    GCDc = math.floor(math.floor(math.floor(math.ceil(A * B) * GCDm / 100) * 100 / 1000) * 100 / 100)
 
+    recast = GCDc / 100
+    return str(round(recast,2))+'s'
+#Function return Det increase to GUI
+def returndet(deter):
+
+    return str(round(((math.floor(130*(deter-380)/3300+1000)/1000)-1)*100,2))+'%'
+#Converts potency into damage
 def returndamage(pot, auto):
     global dex
     global WD
@@ -81,31 +115,120 @@ def returndamage(pot, auto):
     global det
     global ss
 
-    dexstat = math.floor(dex * 1.03)
+    dexstat = math.floor(dex * 1.05)
     Damage = 0
     if auto:
-        Damage = math.floor(pot * ((WD + math.floor(292 * JobMod / 1000))* (wepdelay /3)) * (100 + math.floor((dexstat - 292) * 1000 / 2336)) / 100)
-        Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 292) / 2170)) / 1000)
-        Damage = math.floor(Damage * (1000 + math.floor(130 * (ss - 364) / 2170)) / 1000)
-        Damage = math.floor(Damage * (1000 + math.floor(100 * (364 - 364) / 2170)) / 1000 / 100)
+        Damage = math.floor(pot * ((WD + math.floor(340 * JobMod / 1000))* (wepdelay /3)) * (100 + math.floor((dexstat - 340) * 1000 / 2336)) / 100)
+        Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 340) / 3300)) / 1000)
+        Damage = math.floor(Damage * (1000 + math.floor(130 * (ss - 380) / 3300)) / 1000)
+        Damage = math.floor(Damage * (1000 + math.floor(100 * (380 - 380) / 3300)) / 1000 / 100)
     else:
-        Damage = math.floor(pot * (WD + math.floor(292 * JobMod / 1000)) * (100 + math.floor((dexstat - 292) * 1000 / 2336)) / 100)
-        Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 292) / 2170)) / 1000)
-        Damage = math.floor(Damage * (1000 + math.floor(100 * (364 - 364) / 2170)) / 1000 / 100)
+        Damage = math.floor(pot * (WD + math.floor(340 * JobMod / 1000)) * (100 + math.floor((dexstat - 340) * 1000 / 2336)) / 100)
+        Damage = math.floor(Damage * (1000 + math.floor(130 * (det - 340) / 3300)) / 1000)
+        Damage = math.floor(Damage * (1000 + math.floor(100 * (380 - 380) / 3300)) / 1000 / 100)
 
     return Damage * (random.randrange(95,105)/100)
+#Sets global defaults
+def defaults():
+    global globaldelaytable
+    globaldelaytable = [[10000000, 10000001, False]]
+#Sets global delaytable
+def setdelaytable(table):
+    global globaldelaytable
+    globaldelaytable = table
+#Returns global Delaytale
+def getdelaytable():
+    global globaldelaytable
 
-#Specific Jobs for Buffs
+    return globaldelaytable
+#Returns job activation for UI
+def getactivejob(name):
+    for i in jobs:
+        if i.name == name:
+            return i.active
+# Returns Partner Information for GUI
+def ispartner(name):
+    for i in jobs:
+        if i.name == name:
+            return i.partner
+# Returns priority buff status to UI
+def priority(name):
+    if name == 'AST':
+        return astpriority
+    else:
+        return drgtether
+#Builds dictionarys from settings file
+def builddictionary():
+    openers = {}
+    fight = {}
+    with open('settings', 'r') as f:
+        for line in f:
+            type = line.split(':')
+            if type[0].lower() == 'opener':
+                try:
+                    type2 = type[1].split(';')
+                    key = type2[0]
+                    openlist = type2[1].split(',')
+                    opentable = []
+                    for i in openlist:
+                        opentable.append(i.rstrip('\n'))
+                    openers[key]= opentable
+                except:
+                    pass
+            elif type[0].lower() == 'fight':
+                try:
+                    type2 = type[1].split(';')
+                    key = type2[0]
+                    holdlist = type2[1].split(',')
+                    fighttable = []
+                    for i in holdlist:
+                        holdtime = []
+                        parsetimes = i.split('-')
+                        holdtime.append(int(parsetimes[0]))
+                        holdtime.append(int(parsetimes[1]))
+                        holdtime.append(bool(parsetimes[2].rstrip('/n')))
+                        fighttable.append(holdtime)
+                    fight[key] = fighttable
+                except:
+                    pass
 
+
+    return [openers,fight]
+#returns opener keys to UI
+def returnopeners():
+    global openers
+    opennames = []
+
+    for i in openers.keys():
+        opennames.append(i)
+    return opennames
+
+#returns fight keys to UI
+def returnfights():
+    fightname = []
+    global fights
+
+    for i in  fights.keys():
+        fightname.append(i)
+    return fightname
+
+
+
+
+
+
+
+#Specific Buffs from Jobs
 astpriority = False
 drgtether = False
 
+#Determining Values here
 determinecrit()
 determinedh()
 determinegcd()
 
 
-
+# Class Job, Takes Name, Role, Ifactive in party, GCD time,Their NextGcd, Rate at which they generate Esprit and if they are your partner
 class job:
 
     def __init__(self, name, role, active, gcd, nextgcd, espritrate, partner):
@@ -142,14 +265,67 @@ sch = job('SCH', 'HEAL', True, 2.4, 0, .15, False)
 ast = job('AST', 'HEAL', True, 2.4, 0, .15, False)
 whm = job('WHM', 'HEAL', False, 2.4, 0, .15, False)
 
-gnb = job('GNB', 'TANK', False, 2.4, 0, .15, False)
+gnb = job('GNB', 'TANK', True, 2.4, 0, .15, False)
 war = job('WAR', 'TANK', True, 2.4, 0, .15, False)
 drk = job('DRK', 'TANK', False, 2.4, 0, .15, False)
-pld = job('PLD', 'TANK', True, 2.4, 0, .15, False)
+pld = job('PLD', 'TANK', False, 2.4, 0, .15, False)
 
+#Put jobs in a table for easy access
 jobs = [nin,drg,mnk,sam,brd,mch,rdm,smn,blm,sch,ast,whm,gnb,war,drk,pld]
-party = [nin,drg,rdm,sch,ast,pld,war]
+#Build party based on True values
+party = []
+for i in jobs:
+    if i.active:
+        party.append(i)
 
+#build party from UI
+def setparty(joblist, partner, drgset, astset):
+    global party
+    global jobs
+    global drgtether
+    global astpriority
+    party = []
+    for i in joblist:
+        for u in jobs:
+            if i[0] == u.name:
+                u.active = i[1]
+                if i[1]:
+                    if u.name == partner:
+                        u.partner = True
+                    else:
+                        u.partner = False
+                    party.append(u)
+    if drgset:
+        drgtether = True
+    else:
+        drgtether = False
+
+    if astset:
+        astpriority = True
+    else:
+        astpriority = False
+
+#Return Party String for UI
+def returnpartystring():
+
+    string = ''
+    partnerstring = ''
+    for i in party:
+        string = string  + i.name + ' '
+        if i.partner:
+            partnerstring = i.name
+
+    prioritystring = ''
+    if astpriority and drgtether:
+        prioritystring = ' AST Priority / DRG Tether'
+    elif astpriority:
+        prioritystring = ' AST Priority'
+    elif drgtether:
+        prioritystring = ' DRG Tether'
+
+    return string + 'Partner: '+partnerstring + prioritystring
+
+#Special Card class for AST. Contains Name, Seal and Buff(Boolean) True if ranged buff
 class card:
 
     def __init__(self, name, seal, buff):
@@ -157,7 +333,7 @@ class card:
         self.name = name
         self.seal = seal
         self.buff = buff
-
+#Ability Class
 class ability:
 
     def __init__(self, name, abiltype, targtype, cooldown, potency, nextuse, combopotency, cost):
@@ -169,7 +345,7 @@ class ability:
         self.nextuse = nextuse
         self.combopotency = combopotency
         self.cost = cost
-
+    #Calculated damage and creates log if needed
     def getpotency(self, time, needscombo, iscomboed, cdhstats, potmod):
         Auto = False
         global feathertry
@@ -178,7 +354,7 @@ class ability:
             comboscreated = comboscreated + 1
         if self.name == 'Fountainfall' or self.name == 'Bloodshower' or self.name == 'Reverse Cascade' or self.name == 'Rising Windmill':
             feathertry = feathertry + 1
-        if self.name == 'Auto':
+        if self.name == 'Auto Attack':
             Auto = True
         pot = 0
         string = str(time) + ' : You use ' + str(self.name)
@@ -201,34 +377,30 @@ class ability:
         if (random.randint(1, 10001) > ((10000 * (100 - cdhstats[2]))/100)): #Check DH
             pot = pot * cdhstats[3]
             string = string + '@'
-        #pot = round(pot * potmod, 4)
         pot = round(pot,4)
         if createlog:
             logging.info(string+' - '+str(pot)+ ' damage')
-        # logging.info(str(time) + ' : It hits for ' + str(pot) + ' potency')
         self.nextuse = time + self.cooldown
         return pot
-
+    #puts ability on CD
     def putonCD(self,time):
         self.nextuse = round(time + self.cooldown, 2)
-
+    #Checks if ability is vailable
     def available(self,time):
-        if time >= self.nextuse:
-            return True
-        else:
-            return False
+        return time >= self.nextuse
+    #check the recast time
     def getrecast(self,time):
         if time >= self.nextuse:
             return 0
         else:
             return self.nextuse - time
-
+    #put ability on CD
     def setCD(self, newCD):
         self.cooldown = newCD
-
+    # reset values
     def reset(self):
         self.nextuse = 0
-
+#Special Class for Charges Abilities. Same as abilities except returns cooldown and available different
 class chargedability:
 
     def __init__(self, name, abiltype, targtype, cooldown, potency, nextuse, combopotency, cost, charges):
@@ -298,7 +470,7 @@ class chargedability:
 
     def reset(self):
         self.nextuse = 0
-
+#Buff Class
 class buff:
 
     def __init__(self, name, duration, starttime, potency, cooldown):
@@ -316,13 +488,13 @@ class buff:
         self.ready = False
         self.activation = 0
         self.activationdelay = .5
-
+    # Returns if buff is active
     def getactive(self, time):
         if self.active and (time > self.endtime):
             return False
         elif self.active:
             return True
-
+    # turns buff off and sets the buffs endtime and when the next time is up for use. Also sets the delay on when to switch on
     def activate(self, time):
         global totalprocs
         if self.active:
@@ -337,7 +509,7 @@ class buff:
             self.ready = True
             self.activation = round(time + self.activationdelay, 2)
 
-
+    # Makes the buff active
     def switchon(self,time):
         self.endtime = round(time + self.duration, 2)
         self.starttime = round(time + self.cooldown-self.activationdelay, 2)
@@ -345,7 +517,7 @@ class buff:
         self.ready = False
         if createlog:
             logging.info(str(time) + ": Buff / Debuff Up : " + self.name)
-
+    #check to see if the buff is dropping in a GCD, used for procs
     def closetodrop(self, time, gcd):
         if self.active and (time > self.endtime):
             return False
@@ -353,13 +525,13 @@ class buff:
             return True
         else:
             return False
-
+    #dropbuff if used or done
     def dropbuff(self, clock):
         if self.active:
             if createlog and not self.name == 'Combo' and not self.name == 'Not my Card' and not self.name == 'Sleeve Draw':
                 logging.info(str(clock)+ ' : '+self.name+' has fallen off.')
             self.active = False
-
+    #get the potency of the buff
     def getpotency(self, clock):
         if not self.active:
             return 0
@@ -368,20 +540,20 @@ class buff:
             return 1+(round(2 * math.ceil(remainingtime/4), 2)/100)
         else:
             return round(self.potency, 2)
-
+    #get the duration of the buff
     def returnduration(self,clock):
         if not self.active:
             return 0
         else:
             return self.endtime - clock
-
+    #reset buff starttimes and other values
     def reset(self):
         self.starttime = self.default
         self.activation = 0
         self.active = False
         self.available = False
         self.ready = False
-
+    # literally just exists for Divination
     def specialactivate(self, time, check):
         if check:
             self.potency = 1.06
@@ -391,7 +563,7 @@ class buff:
         self.activation = time + self.activationdelay
         if createlog and not self.name == 'Combo':
             logging.info(str(time) + ": Buff / Debuff Up : " + self.name)
-
+#Action class, used when making opener
 class action:
 
     def __init__(self, id, name, actiontime):
@@ -405,7 +577,10 @@ class action:
         else:
             return False
 
-autoattack = ability('Auto Attack', 'Auto', 'ST', 2.8, 100, 0, 'None', 0)
+
+#### Global Class definitions ####
+#### Also putting buffs into tables for easier cycling ###
+autoattack = ability('Auto Attack', 'Auto', 'ST', wepdelay, 100, 0, 'None', 0)
 cascade = ability('Cascade', 'GCD', 'ST', GCDrecast, 250, 0, "None", 0)
 fountain = ability('Fountain', 'GCD', 'ST', GCDrecast, 100, 0, 300, 0)
 reversecascade = ability('Reverse Cascade', 'GCD', 'ST', GCDrecast, 350, 0, "None", 0)
@@ -496,6 +671,7 @@ astbuffs = [goodcard, badcard, bigcard, divination]
 critbuffs = [litany, chain]
 dhbuffs = [battlevoice]
 
+## Reset global buff values ##
 def reset():
 
     for i in party:
@@ -527,7 +703,7 @@ def reset():
     global dex
     global basedex
     dex = basedex
-
+## Build party (for non ui settings) - Depricated
 def buildparty():
     global jobs
     global party
@@ -586,7 +762,7 @@ def buildparty():
         return False
 
     return True
-
+#Runs through party list to enable buffs
 def makebuffsavailable():
     global drgtether
     for i in potencybuffs:
@@ -614,7 +790,7 @@ def makebuffsavailable():
         chain.available = True
 
     potionbuff.available = True
-
+#Simple function for cascade combo potency
 def cascadecombo(iterations):
     i = 0
     iterations = int(iterations)
@@ -678,7 +854,7 @@ def cascadecombo(iterations):
         logging.info('Fan Dance III per GCD: ' + str(superfeathers / gcd))
     if createlog:
         logging.info('Left Over Esprit: ' + str(esprit))
-
+#Simple function forAoE combo potency
 def AoEcombos(iterations,mobs):
     i = 0
     stpot = 0
@@ -795,7 +971,7 @@ def AoEcombos(iterations,mobs):
 
     return [stpot,aoepot,ffpotcalc,rcpotcalc]
 
-
+# Returns feathers at a 50% chance when called
 def getfeathers(clock, feathers):
     global featherattempt
     global feathersdropped
@@ -810,7 +986,7 @@ def getfeathers(clock, feathers):
         return 1
     else:
         return 0
-
+# Esprit generation for self, currently set to 15% and returns 10
 def buildesprit(clock,esprit):
     global espritfromself
     global espritattempt
@@ -826,7 +1002,7 @@ def buildesprit(clock,esprit):
         return 10
     else:
         return 0
-
+# Party Esprit, generates based on job.rate
 def partybuildesprit(clock,esprit, rate):
     global espritfromparty
     global espritattemptparty
@@ -842,7 +1018,7 @@ def partybuildesprit(clock,esprit, rate):
         return 10
     else:
         return 0
-
+# Draw / Redraw combination function for Ast mod
 def drawcard(currentseals, allseals, clock):
     drawing = True
     card= 0
@@ -885,12 +1061,12 @@ def drawcard(currentseals, allseals, clock):
             else:
                 return ['Lady', card, clocktime]
     return [card.name,card,clocktime]
-
+# Just draw for ast mod opener
 def justdraw(currentseals, allseals, clock):
     cardnumber = random.randrange(0, 6)
     card = deck[cardnumber]
     return [card.name, card, 0]
-
+# Checks if all seals are true
 def checkseals(currentseals):
     Lunar = False
     Solar = False
@@ -907,13 +1083,13 @@ def checkseals(currentseals):
         return True
     else:
         return False
-
+# 50% chance to generate proc, returns true if procced
 def checkproc():
     if (random.randint(1, 10001) > 10000 * .50):
         return True
     else:
         return False
-
+# Counts procs and returns number of them for better sim logic
 def countprocs(clock):
 
     procounter = 0
@@ -927,7 +1103,7 @@ def countprocs(clock):
         procounter = procounter + 1
 
     return procounter
-
+# Takes opener in table form and makes it into an action table
 def buildopentable(opener):
    # opener = ['Hold 1','Standard Finish', 'Flourish', 'Rising Windmill', 'Bloodshower', 'Hold 1.70', 'Saber Dance', 'Technical Step', 'AutoOGCD 1',
     #          'AutoGCD', 'AutoOGCD 2','Standard Step','AutoOGCD 2', 'AutoGCD']
@@ -1038,7 +1214,7 @@ def buildopentable(opener):
                         clock = round(clock + abilitydelay, 2)
                 identify = identify + 1
     return actiontable
-
+# Same as above but for AST
 def buildasttable():
     #opener = ['Hold .7','GCD','Play', 'oGCD', 'GCD', 'Draw', 'Sleeve Draw', 'GCD', 'Play', 'Draw', 'GCD', 'Redraw','Play','GCD', 'Divination']
     #opener = ['Hold .7', 'GCD', 'Play', 'oGCD', 'GCD', 'Draw', 'Sleeve Draw','GCD', 'Play', 'Draw', 'GCD', 'Play', 'Divination']
@@ -1094,9 +1270,8 @@ def buildasttable():
             actiontable.append(action(100,'Minor Arcana', clock))
 
     return actiontable
-
-
-def sim(openset, timetorun):
+# Back up sim for testing and other useless things
+def backupsim(openset, timetorun):
     reset()
     global GCDrecast
     global abilitydelay
@@ -1115,6 +1290,9 @@ def sim(openset, timetorun):
     global standhold
     global techhold
     global trickstands
+    global firstdevilment
+
+    foundfirstdevil = False
 
     basedex = dex
     clock = 0
@@ -1168,7 +1346,7 @@ def sim(openset, timetorun):
 
 # AST Stuff
 #clock,currentseals,allseals,nextaction,sleevestacks,nextgcd,card,cardheld,arcana,astopen,astopener,inastopen
-    astinformation = [[], False, 0, 0, 0, justdraw([],False,0), True, False, True, buildasttable(), 0, astpriority,[],[],False,0]
+    astinformation = [[], False, 0, 0, 0, justdraw([],False,0), True, False, True, buildasttable(), 0, astpriority,[[10000,10000,False]],0]
 
 # Values to keep track and help print updates
 
@@ -1226,6 +1404,7 @@ def sim(openset, timetorun):
                     i.switchon(clock)
                 if i.getactive(clock):
                     potmod.append(i.getpotency(clock))
+                    automod.append(i.getpotency(clock))
                 elif not i.getactive(clock) and i.active:
                     i.dropbuff(clock)
 
@@ -1362,7 +1541,7 @@ def sim(openset, timetorun):
                     esprit = esprit + partybuildesprit(clock, esprit, i.espritrate)
         # Handle Auto
         if clock == nextauto:
-            potency = potency + autoattack.getpotency(clock,False,False,CDHStats,potmod)
+            potency = potency + autoattack.getpotency(clock,False,False,CDHStats,automod)
             nextauto = round(clock + autoattack.cooldown,2)
 
 
@@ -1922,9 +2101,11 @@ def sim(openset, timetorun):
             oldpot = potency
             oldesprit = esprit
             oldfeathers = feathers
+        if esprit > 40 and not foundfirstdevil:
+            firstdevilment = clock
+            foundfirstdevil = True
         clock = round(clock + .01, 2)
 
-    print(gcd)
     if createlog:
         logging.info("------Results-----")
         logging.info("Time Ran : "+str(clock))
@@ -1960,9 +2141,10 @@ def sim(openset, timetorun):
 
     dex = basedex
     return potency
-
-def simholds(openset, timetorun, delaytable):
-    reset()
+# Main Sim module
+def sim(openset, timetorun):
+    reset()  # Reset values before start
+    # Global declarations
     global GCDrecast
     global abilitydelay
     global basecritchance
@@ -1981,7 +2163,10 @@ def simholds(openset, timetorun, delaytable):
     global techhold
     global trickstands
 
-    basedex = dex
+    delaytable = getdelaytable() #get delay table
+
+    basedex = dex # set base dex for potion use
+    # Mass value declaration
     clock = 0
     timerfinish = timetorun
     partygcd = GCDrecast
@@ -2020,7 +2205,7 @@ def simholds(openset, timetorun, delaytable):
     ignoreabilitydelay = False
     technicalhold = False
     standardhold = False
-
+    # Standard / Technical holds per GCD tier for sim logic
     technicalholdlist=[2.50,2.49,2.48,2.44,2.43,2.38]
     standardholdlist = [2.5,2.49,2.48]
 
@@ -2055,9 +2240,9 @@ def simholds(openset, timetorun, delaytable):
     fandance1.nextuse = 1
     fandance3.nextuse = 1
 
-
+#### Sim Start ###
     while clock < timerfinish:
-
+    ## Check if we have entered a delay in the fight
         if delayedpos < len(delaytable):
             delaystart = round(delaytable[delayedpos][0], 2)
             delayend = round(delaytable[delayedpos][1], 2)
@@ -2066,6 +2251,8 @@ def simholds(openset, timetorun, delaytable):
                 nextgcd = round(delayend, 2)
                 nextaction = round(delayend, 2)
                 delayeddance = round(delayend-14,2)
+                if createlog:
+                    logging.info(str(clock)+' : Boss has jumped')
                 delay = True
                 stillinopener = False # To avoid complications)
                 if technicalstep.nextuse < delayend:
@@ -2075,24 +2262,26 @@ def simholds(openset, timetorun, delaytable):
             elif clock == delayend:
                 if improvbuff.getactive(clock):
                     improvbuff.dropbuff(clock)
+                if createlog:
+                    logging.info(str(clock) + ' : Boss has Returned')
                 delay = False
                 delayedpos = delayedpos + 1
         else:
             delaystart = 1000000000000
             delayend = 1000000000000
 
+        ## Initialize values before running through logic
         totalbuffs = 0
 
         potmod = [1.20, 1.05]
+        automod = [1.05]
         dex = basedex
         modGCDrecast = GCDrecast
         critchance = basecritchance
         critbonus = basecritbonus
         directchance = basedirectchance
         directbonus = basedirectbonus
-        postcombo = combo.getactive(clock)
-        usedfountain = False
-
+        # Activate potion value if its available
         if potionbuff.available:
             if potionbuff.ready and potionbuff.activation == clock:
                 potionbuff.switchon(clock)
@@ -2104,7 +2293,7 @@ def simholds(openset, timetorun, delaytable):
             elif potionbuff.active:
                 potionbuff.dropbuff(clock)
                 dex = basedex
-
+        # Run Ast Module then see whic buffs are one
         if ast.active:
             astinformation = astmodule(clock,astinformation)
             for i in astbuffs:
@@ -2112,9 +2301,10 @@ def simholds(openset, timetorun, delaytable):
                     i.switchon(clock)
                 if i.getactive(clock):
                     potmod.append(i.getpotency(clock))
+                    automod.append(i.getpotency(clock))
                 elif not i.getactive(clock) and i.active:
                     i.dropbuff(clock)
-
+        # Run through buff tables and apply buffs / drop off and build potency table
         for i in potencybuffs:
             if i.available:
                 if delayedpos < len(delaytable):
@@ -2129,6 +2319,7 @@ def simholds(openset, timetorun, delaytable):
                     i.activate(clock)
                 if i.getactive(clock):
                     potmod.append(i.getpotency(clock))
+                    automod.append(i.getpotency(clock))
                     totalbuffs = totalbuffs + 1
                 elif i.available and not i.getactive(clock) and i.active:
                     i.dropbuff(clock)
@@ -2172,6 +2363,7 @@ def simholds(openset, timetorun, delaytable):
 
         if technical.getactive(clock):
             potmod.append(1.05)
+            automod.append(1.05)
             totalbuffs = totalbuffs + 1
         elif technical.active:
             technical.dropbuff(clock)
@@ -2182,7 +2374,7 @@ def simholds(openset, timetorun, delaytable):
             totalbuffs = totalbuffs + 1
         elif saber.active:
             saber.dropbuff(clock)
-
+        # Other buffs are procs and combos, track them here
         for i in buffs:
             if i.active and (not i.getactive(clock)):
                 if not i.name == 'Combo':
@@ -2195,11 +2387,14 @@ def simholds(openset, timetorun, delaytable):
                         logging.info(str(clock) + ' : You lost a combo')
                 i.dropbuff(clock)
 
-
+        # Determine if we are in a buff window for logic
         if nin.active and trick.getactive(clock):
             buffwindow = True
             lastbuffwindow = clock
         elif saber.getactive(clock):
+            buffwindow = True
+            lastbuffwindow = clock
+        elif potionbuff.getactive(clock):
             buffwindow = True
             lastbuffwindow = clock
         elif drg.active and brd.active and battlevoice.getactive(clock) and litany.getactive(clock):
@@ -2208,7 +2403,7 @@ def simholds(openset, timetorun, delaytable):
         else:
             buffwindow = False
 
-        # Let's Jump through time to figure out our next buff window
+        # Determine future stuff next such as Nextbuffwindow, and standard / Technical times
         foundnextbuffwindow = False
         nextbuffwindow = clock
         nextdance = clock
@@ -2232,30 +2427,35 @@ def simholds(openset, timetorun, delaytable):
             technicaltimer = round(clock + standardrecast, 2)
         ## Lots of fun dancing logic used to figure out if I'm dancing soon or not and what dances are coming and when technical is coming
         # Could consolidate this to less code if ever needed, some redundancy here
-        if technicaltimer == 0:
-            standardtimer = actualnextdance
-        elif standardtimer == 0:
-            technicaltimer = actualnextdance
-        elif technicaltimer > standardtimer:
-            standardtimer = actualnextdance
-        else:
-            technicaltimer = actualnextdance
+        if dancenumber > 0:
+            if technicaltimer == 0:
+                actualnextdance = standardtimer
+            elif standardtimer == 0:
+                actualnextdance = technicaltimer
+            elif technicaltimer > standardtimer:
+                actualnextdance = standardtimer
+            else:
+                actualnextdance = standardtimer
 
-        if (nextgcd == clock or (nextaction == clock and (flourishfan.getactive(clock)))) and clock - lastbuffwindow > 30 :
-            while(not foundnextbuffwindow):
-                nextbuffwindow = round(nextbuffwindow + .01, 2)
-                if nin.active and trick.starttime == nextbuffwindow:
-                    foundnextbuffwindow = True
-                elif saber.starttime == nextbuffwindow:
-                    foundnextbuffwindow = True
-                elif drg and brd and battlevoice.starttime == nextbuffwindow:
-                    foundnextbuffwindow = True
-                elif nextbuffwindow > (clock + 15): # I don't really care if the buffwindow is greater than 20s away
-                    foundnextbuffwindow = True
-
+            nextbuffwindow = 100000000000
+            foundnextbuffwindow = False
+            if nin.active and trick.starttime - clock < 15 :
+                foundnextbuffwindow = True
+                nextbuffwindow = trick.starttime
+            elif saberdance.nextuse - clock < 15:
+                foundnextbuffwindow = True
+                if saberdance.nextuse < nextbuffwindow:
+                    nextbuffwindow = saberdance.nextuse
+            elif drg and brd and battlevoice.starttime - clock < 15:
+                foundnextbuffwindow = True
+                if battlevoice.starttime < nextbuffwindow:
+                    nextbuffwindow = battlevoice.starttime
+            if nextbuffwindow == 100000000000:
+                nextbuffwindow = 0
+        #Build CDH table for easy passthrough
         CDHStats = [critchance, critbonus, directchance, directbonus]
         # Handle Esprit
-
+        # Handle party GCDs and Esprit
         for i in party:
             if i.nextgcd == clock:
                 i.nextgcd = round(clock + i.gcd, 2)
@@ -2268,7 +2468,7 @@ def simholds(openset, timetorun, delaytable):
             if not delay:
                 potency = potency + autoattack.getpotency(clock,False,False,CDHStats,potmod)
             nextauto = round(clock + autoattack.cooldown,2)
-
+        # Handle Global Tick
         if clock == nexttick:
             if improvbuff.getactive(clock):
                 esprit = esprit + len(party)*3
@@ -2299,7 +2499,7 @@ def simholds(openset, timetorun, delaytable):
 
         # Let's push the next GCD to technical or standard if its within range
         #Handle Opener if available
-
+        #---------------------------------------------------------- MAIN SIM---------------------------------------------------------------------------------------------
         if stillinopener:
             if opener[posinopen].actionable(clock):
                 currentaction = opener[posinopen]
@@ -2561,8 +2761,9 @@ def simholds(openset, timetorun, delaytable):
         else:
             # GCD Priority List - Update this
             # First we check if we are dancing and finish the dance
-            # We check the status on technical, If we used Saber first in our opener we also check to see if Saber Dance is up. Then we use Technical
-            # Check if Standard Step is up - If so use it
+            # We check the status on technical, If we used Saber first in our opener we also check to see if Saber Dance is up. We also check to make there is no boss jump/delay in the 22 seconds Then we use Technical
+            # Check if Standard Step is up and there is no boss jump/delay in 5 seconds - If so use it
+            # If we have 50 Espri. improv is up and the boss is jumping within the next GCD we want to dump Esprit into Devilment
             # next we check if 2 dances are coming and one is next GCD and if we have flourishfountain - Use Flourish Fountain
             # next we check if 2 dances are coming and one is next GCD and if we have flourishcascade - Use Flourish Cascade
             # If we have flourish fountain and we will lose a the proc next GCD - Use Fountainfall
@@ -2570,22 +2771,19 @@ def simholds(openset, timetorun, delaytable):
             # next we check if we are in combo and the combo is about to drop and we don't have Flourish Fountain - Use Fountain
             # If Cascade flourish is up and we will lose any flourish proc if we don't use one - Use Reverse Cascade
             # If Bladeshower flourish is up and we will lose any flourish proc if we don't use one - Use Bloodshower
-            # If Windmill flourish up and we will lose any flourish proc if we don't use one - Use Rising Windmill
             # If we are in a buffwindow and esprit equal or greater than 50 - Use Devilment
+            # If we either we are not in a buffwindow in 15 seconds and your esprit is 90 or we are in a buffwindow in 15 seconds and esprit is at 100 - Use Devilment
+            # If Windmill flourish up and we will lose any flourish proc if we don't use one - Use Rising Windmill
             # If we are in a buffwindow and flourishfountain is up - Use Fountainfall
             # If we are in a buffwindow and flourishcascade is up - Use Reverse Cascade
             # If we are in a buff window and flourishbladeshower is up - Use Blood Shower
             # If we are in a buff window and flourishwindmill is up - Use Rising Windmill
-            # If Esprit > 70 use Devilment
             # If flourishwindmill - Use Risingmill
             # if flourishbladeshower - Use Bloodshower
             # if flourishcascade - Use Reverse Cascade
             # if flourishfountain - Use Fountainfall
             # If we are in a combo use Fountain
             #  Else Use Cascade
-
-
-
             if nextgcd == clock:
                 if standarddancing or technicaldancing:
                     if stepsneeded > 0:
@@ -2662,6 +2860,11 @@ def simholds(openset, timetorun, delaytable):
                         gcd = gcd + 1
                         flourishcascade.dropbuff(clock)
                         feathers = feathers + getfeathers(clock, feathers)
+                    elif flourishcascade.getactive(clock) and flourishfountain.getactive(clock) and dancenumber > 0 and foundnextbuffwindow:
+                        potency = potency + reversecascade.getpotency(clock, False, False, CDHStats, potmod)
+                        gcd = gcd + 1
+                        flourishcascade.dropbuff(clock)
+                        feathers = feathers + getfeathers(clock, feathers)
                     elif combo.getactive(clock) and not flourishfountain.getactive(clock) and combo.closetodrop(clock,modGCDrecast):  # First We check to see if we are in combo and don't have Flourished Fountain
                         potency = potency + fountain.getpotency(clock, True, True, CDHStats, potmod)
                         usedfountain = True
@@ -2679,17 +2882,23 @@ def simholds(openset, timetorun, delaytable):
                         gcd = gcd + 1
                         feathers = feathers + getfeathers(clock, feathers)
                         flourishbloodshower.dropbuff(clock)
-                    elif flourishwindmill.getactive(clock) and flourishwindmill.closetodrop(clock, procgcd):  # Check if Windmill is close to fall
-                        potency = potency + risingwindmill.getpotency(clock, False, False, CDHStats, potmod)
-                        gcd = gcd + 1
-                        feathers = feathers + getfeathers(clock, feathers)
-                        flourishwindmill.dropbuff(clock)
                     elif buffwindow and esprit >= 50 :  # I want to use devilment in the buff window
                         potency = potency + devilment.getpotency(clock, False, False, CDHStats, potmod)
                         useddevilments = useddevilments + 1
                         gcd = gcd + 1
                         esprit = esprit - devilment.cost
                         esprit = esprit + buildesprit(clock, esprit)
+                    elif (not foundnextbuffwindow and esprit > 80) or (foundnextbuffwindow and esprit == 100) :
+                        potency = potency + devilment.getpotency(clock, False, False, CDHStats, potmod)
+                        useddevilments = useddevilments + 1
+                        gcd = gcd + 1
+                        esprit = esprit - devilment.cost
+                        esprit = esprit + buildesprit(clock, esprit)
+                    elif flourishwindmill.getactive(clock) and flourishwindmill.closetodrop(clock, procgcd):  # Check if Windmill is close to fall
+                        potency = potency + risingwindmill.getpotency(clock, False, False, CDHStats, potmod)
+                        gcd = gcd + 1
+                        feathers = feathers + getfeathers(clock, feathers)
+                        flourishwindmill.dropbuff(clock)
                     elif buffwindow and flourishfountain.getactive(clock):  # Check to see if Flourish Fountain is up
                         potency = potency + fountainfall.getpotency(clock, False, False, CDHStats, potmod)
                         gcd = gcd + 1
@@ -2710,12 +2919,6 @@ def simholds(openset, timetorun, delaytable):
                         gcd = gcd + 1
                         feathers = feathers + getfeathers(clock, feathers)
                         flourishwindmill.dropbuff(clock)
-                    elif (not foundnextbuffwindow and esprit > 80) or (foundnextbuffwindow and esprit == 100) :
-                        potency = potency + devilment.getpotency(clock, False, False, CDHStats, potmod)
-                        useddevilments = useddevilments + 1
-                        gcd = gcd + 1
-                        esprit = esprit - devilment.cost
-                        esprit = esprit + buildesprit(clock, esprit)
                     elif flourishwindmill.getactive(clock):  # Check if Windmill is up
                         potency = potency + risingwindmill.getpotency(clock, False, False, CDHStats, potmod)
                         gcd = gcd + 1
@@ -2870,16 +3073,16 @@ def simholds(openset, timetorun, delaytable):
 
                 standhold = round(standhold + (standardstep.nextuse - nextgcd), 2)
                 nextgcd = round(standardstep.nextuse, 2)
-
-        potency = round(potency,3)
+        # If anything changes, post an updated
         if (oldpot != potency) or (oldesprit != esprit) or (oldfeathers != feathers):
             if createlog:
-                logging.info(str(clock)+ ' : Potency: '+str(potency)+' || Dex: '+str(dex)+' || Feathers: '+str(feathers)+' || Esprit: '+str(esprit)+ ' || Buff window: '+str(buffwindow)+' '+str(potmod)+ ' || Crit Rate: '+str(CDHStats[0])+ ' || DH Rate: '+str(CDHStats[2]))
+                logging.info(str(clock)+ ' : Potency: '+str(round(potency,1))+' || Feathers: '+str(feathers)+' || Esprit: '+str(esprit)+ ' || Crit Rate: '+str(CDHStats[0])+ ' || DH Rate: '+str(CDHStats[2]))
             oldpot = potency
             oldesprit = esprit
             oldfeathers = feathers
+        # Advance Clock
         clock = round(clock + .01, 2)
-
+    #print info after if logging
     if createlog:
         logging.info("------Results-----")
         logging.info("Time Ran : "+str(clock))
@@ -2892,30 +3095,20 @@ def simholds(openset, timetorun, delaytable):
         logging.info("Flourished Fans: "+str(flourishedfans))
         logging.info("Devilments Used: "+str(useddevilments))
 
-        global comboscreated
-        global totalprocs
-        global featherattempt
         global feathersdropped
         global espritcap
-        global espritattempt
-        global espritattemptparty
-
-        logging.info('Combos Made: '+str(comboscreated))
         logging.info('Combos Dropped: ' + str(combodrops))
-        logging.info('Percent Drop : ' + str(combodrops/comboscreated))
-        logging.info('Flourish Procs Generated : ' + str(totalprocs))
         logging.info('Flourish Procs Dropped : ' + str(procdrop))
-        logging.info('Percent Drop : ' + str(procdrop / totalprocs))
-        logging.info('Feathers Attempt: ' + str(featherattempt))
         logging.info('Feathers Dropped : ' + str(feathersdropped))
-        logging.info('Percent Drop : ' + str(feathersdropped / featherattempt))
-        logging.info('Esprit Attempt: ' + str(espritattemptparty+espritattempt))
         logging.info('Esprit Cap : ' + str(espritcap))
-        logging.info('Percent Drop : ' + str(espritcap / (espritattemptparty+espritattempt)))
 
-    dex = basedex
-    return potency
+        global totalesprit
 
+    totalesprit = useddevilments*50+esprit
+
+    dex = basedex # Reset dex
+    return round(potency,4)
+# ASt Module
 def astmodule(clock,table):
 
     astgcd = 2.4
@@ -2935,6 +3128,22 @@ def astmodule(clock,table):
     delaytable = table[12]
     delayedpos = table[13]
 
+    if delayedpos < len(delaytable):
+        delaystart = round(delaytable[delayedpos][0], 2)
+        delayend = round(delaytable[delayedpos][1], 2)
+        if clock == delaystart:
+            nextgcd = round(delayend, 2)
+            nextaction = round(delayend, 2)
+            astopen = False  # To avoid complications)
+            if divination.starttime < delayend:
+                divination.starttime = round(delayend + 6, 2)
+            if sleeve.nextuse < delayend:
+                sleeve.nextuse = round(delayend + GCDrecast, 2)
+            delay = False
+            delayedpos = delayedpos + 1
+    else:
+        delaystart = 1000000000000
+        delayend = 1000000000000
 
     if astopen:
             if astopener[inastopen].actiontime == clock:
@@ -3013,19 +3222,19 @@ def astmodule(clock,table):
                 nextaction = round(clock + .7, 2)
             elif nextaction == clock:
                 allseals = checkseals(currentseals)
-                if sleeve.available(clock) and not draw.available(clock) and len(currentseals)<2:
+                if sleeve.available(clock) and not draw.available(clock) and len(currentseals)<2 and delaystart - clock > 20:
                     sleeve.putonCD(clock)
                     sleevebuff.activate(clock)
                     sleevestacks = 2
                     draw.nextuse = clock
                     nextaction = round(clock + .7, 2)
-                elif sleeve.available(clock) and not draw.available(clock) and divination.starttime - clock < 5:
+                elif sleeve.available(clock) and not draw.available(clock) and divination.starttime - clock < 5 and delaystart - clock > 20:
                     sleeve.putonCD(clock)
                     sleevebuff.activate(clock)
                     sleevestacks = 2
                     draw.nextuse = clock
                     nextaction = round(clock + .7, 2)
-                elif divination.starttime == clock and len(currentseals) > 2:
+                elif divination.starttime == clock and len(currentseals) > 2 and delaystart - clock > 20:
                     divination.specialactivate(clock,checkseals(currentseals))
                     currentseals = []
                     nextaction = round(clock + .7, 2)
@@ -3087,7 +3296,7 @@ def astmodule(clock,table):
                 divination.starttime = round(clock + .01, 2)
 
     return [currentseals,checkseals(currentseals),nextaction,sleevestacks,nextgcd,card,cardheld,arcana,astopen,astopener,inastopen, astpriority, delaytable, delayedpos]
-
+# Settings for non UI us - Depricated
 def settings():
     settingsmenu = ['1: Set Party Comp', '2: Set Stats', '3: Reset log', '4: Exit']
     for i in settingsmenu:
@@ -3122,7 +3331,7 @@ def settings():
                         jobs[choice-1].switch()
                 except:
                     print('Please Enter a valid number')
-
+# AST testing
 def testdraws():
     reset()
     clock = 0
@@ -3326,7 +3535,7 @@ def testdraws():
                 divination.starttime = round(clock + .01, 2)
 
         clock = round(clock + .01, 2)
-
+# Main for non UI use - Depricated
 def main():
     # timestorun  = input('Number of times to run?')
     # cascadecombo(timestorun)
@@ -3341,7 +3550,7 @@ def main():
     selflessopener = ['Standard Finish','Saber Dance', 'Technical Step','Potion', 'Cascade', 'Flourish', 'Reverse Cascade', 'AutoOGCD 2', 'AutoGCD']
     selflessopener2 = ['Standard Finish', 'Flourish', 'Technical Step', 'Saber Dance', 'Bloodshower','Potion','Reverse Cascade', 'AutoOGCD 2', 'Fountainfall', 'Standard Step', 'AutoOGCD 1', 'AutoGCD']
     earlytrick = ['Standard Finish', 'Flourish', 'Bloodshower', 'Potion', 'Saber Dance', 'Technical Step','Reverse Cascade', 'AutoOGCD 2', 'Fountainfall', 'Standard Step', 'AutoOGCD 1', 'AutoGCD']
-    openers = [earlytrick, latetrick, selflessopener2 ]
+    openerz = [earlytrick, latetrick, selflessopener2 ]
     openernames = ['Early Trick',  'Late Trick', 'Selfless']
     print('---Dancer Sim V1.0---')
     print('---Author: Ellunavi---')
@@ -3351,6 +3560,7 @@ def main():
     print(' ')
     exit = False
     while(not exit):
+        defaults()
         print('----Menu----')
         print('1: Compare Openers')
         print('2: Log Sim')
@@ -3459,43 +3669,99 @@ def main():
                 iterations = int(iterations)
                 opener1potencies = []
                 while (iterations > 0):
-                    opener1potencies.append(sim(latetrick, runningtime))
+                    opener1potencies.append(sim(earlytrick, runningtime))
                     iterations = iterations - 1
                 open1answer = 0
-                topparse = opener1potencies[0]
-                bottomparse = opener1potencies[0]
-                while iterations < totaltimes:
-                    if topparse < opener1potencies[iterations]:
-                        topparse = opener1potencies[iterations]
-                    if bottomparse > opener1potencies[iterations]:
-                        bottomparse = opener1potencies[iterations]
-                    open1answer = open1answer + opener1potencies[iterations]
-                    iterations = iterations + 1
-                open1answer = round((open1answer / totaltimes) / runningtime, 4)
-                print('Opener 1 Result: ' + str(open1answer))
-                print('Top Result: ' + str(round(topparse/runningtime,4)))
-                print('Bottom Result: ' + str(round(bottomparse/runningtime, 4)))
+                #topparse = opener1potencies[0]
+                #bottomparse = opener1potencies[0]
+                #while iterations < totaltimes:
+                    #if topparse < opener1potencies[iterations]:
+                        #topparse = opener1potencies[iterations]
+                    #if bottomparse > opener1potencies[iterations]:
+                        #bottomparse = opener1potencies[iterations]
+                    #open1answer = open1answer + opener1potencies[iterations]
+                    #iterations = iterations + 1
+                open1answer = list(map(lambda x: x / runningtime, opener1potencies))
+                deviation = statistics.stdev(open1answer)
+                print('Opener 1 Result: ' + str(round(statistics.mean(open1answer),4)))
+                print('Top Result: ' + str(round(max(open1answer),4)))
+                print('Bottom Result: ' + str(round(min(open1answer),4)))
+                print('Deviation: '+str(round(deviation,4)))
+                plt.hist(open1answer,
+                         color='blue',
+                         edgecolor='black',
+                         bins=int((max(open1answer) - min(open1answer))))
+                plt.show()
             if int(choice) == 6:
                 exit = True
             if int(choice) == 7:
-                runningtime = 600
-                delaystart = [45]
-                delayfinish = [80]
-                buffdelay = True
-                createlog = True
-                delaytable = [[45,80,True], [128,140,True], [240,290, True]]
-                simholds(latetrick,runningtime,delaytable)
+                global GCDrecast
+                buildopendictionary()
+
             else:
                 print('Please enter a valid command')
+# Runs sim from UI
+def runsim(log,openkey,fightkey,length):
+    potency = 0
+    global gcd
+    global totalesprit
+    global createlog
+    global combodrops
+    global feathersdropped
+    global procdrop
+    global espritcap
+    global openers
+    combodrops = 0
+    feathersdropped = 0
+    procdrop = 0
+    espritcap = 0
+
+    createlog = log
+    gcd = 0
+    totalesprit = 0
+    fightname = fights[fightkey]
+    openname = openers[openkey]
+    setdelaytable(fightname)
+    potency = (sim(openname,length))/length
+    return [potency,gcd,totalesprit]
+# Sets stats from UI
+def setstats(stats):
+    global WD
+    global wepdelay
+    global autoattack
+    global dex
+    global basedex
+    global crit
+    global dh
+    global det
+    global ss
+
+    WD = stats[0]
+    wepdelay = stats[1]
+    autoattack.cooldown = stats[1]
+    dex = stats[2]
+    basedex = stats[2]
+    crit = stats[3]
+    dh = stats[4]
+    det = stats[5]
+    det = stats[6]
+    ss = stats[7]
+
+    determinegcd()
+    determinedh()
+    determinecrit()
+### Build Global fights and openers
+tables = builddictionary()
+openers = tables[0]
+fights = tables[1]
 
 
 
 
 
-
-
-
-main()
+if __name__ == "__main__":
+   # stuff only to run when not called via 'import' here
+   main()
 
 
 
